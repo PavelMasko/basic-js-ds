@@ -22,10 +22,6 @@ const { NotImplementedError } = require('../extensions/index.js');
  *   }
  * }
  */
-let list = [3, 1, 2, 3, 4, 5];
-let k = 3;
-
-
 function removeKFromList(list, key) {
     const index = 1;
     let number = list;
@@ -36,15 +32,15 @@ function removeKFromList(list, key) {
     }
 
     while (number.next) {
-        number.next.value !== key ?
-            current = number.next :
+        if (number.next.value === key) {
             number.next = number.next.next;
-
+        } else {
+            number = number.next;
+        }
         index;
     }
     return list;
 }
-
 
 module.exports = {
     removeKFromList
